@@ -19,7 +19,7 @@ module.exports = function blackjack (utxos, outputs, feeRate) {
     var inputValue = utils.uintOrNaN(input.value)
 
     // would it waste value?
-    if ((inAccum + inputValue) > (outAccum + fee + threshold)) continue
+    // if ((inAccum + inputValue) > (outAccum + fee + threshold)) continue
 
     bytesAccum += inputBytes
     inAccum += inputValue
