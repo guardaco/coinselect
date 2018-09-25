@@ -1,3 +1,4 @@
+var split = require('./split')
 var accumulative = require('./accumulative')
 var blackjack = require('./blackjack')
 var utils = require('./utils')
@@ -15,6 +16,10 @@ module.exports = function coinSelect (utxos, outputs, feeRate) {
   // attempt to use the blackjack strategy first (no change output)
   var base = blackjack(utxos, outputs, feeRate)
   if (base.inputs) return base
+
+  // else, try the split strategy
+  var split = split(utxos, outputs, feeRate)
+  if (split.inputs) return split
 
   // else, try the accumulative strategy
   return accumulative(utxos, outputs, feeRate)
