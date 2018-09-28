@@ -18,8 +18,8 @@ module.exports = function coinSelect (utxos, outputs, feeRate) {
   if (base.inputs) return base
 
   // else, try the split strategy
-  var split = split(utxos, outputs, feeRate)
-  if (split.inputs) return split
+  var sp = split(utxos, outputs, feeRate)
+  if (sp.inputs) return sp
 
   // else, try the accumulative strategy
   return accumulative(utxos, outputs, feeRate)
