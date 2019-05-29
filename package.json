@@ -28,7 +28,8 @@
     "break.js",
     "index.js",
     "split.js",
-    "utils.js"
+    "utils.js",
+    "all-in.js"
   ],
   "main": "index.js",
   "repository": {
