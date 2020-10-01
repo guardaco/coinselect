@@ -48,9 +48,9 @@ function finalize (inputs, outputs, feeRate) {
   var remainderAfterExtraOutput = sumOrNaN(inputs) - (sumOrNaN(outputs) + feeAfterExtraOutput)
 
   // is it worth a change output?
-  // if (remainderAfterExtraOutput > dustThreshold({}, feeRate)) {
-  outputs = outputs.concat({ value: remainderAfterExtraOutput })
-  // }
+  if (remainderAfterExtraOutput > 0) {
+    outputs = outputs.concat({ value: remainderAfterExtraOutput })
+  }
 
   var fee = sumOrNaN(inputs) - sumOrNaN(outputs)
   if (!isFinite(fee)) return { fee: feeRate * bytesAccum }
